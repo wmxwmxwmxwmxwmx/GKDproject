@@ -1,7 +1,9 @@
+#include <cstdio>
 #include <vector>
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+using namespace std;
 class Matrix
 {
 private:
@@ -47,10 +49,9 @@ class model
 private:
     std::vector<Matrix> weights;
     std::vector<Matrix> biases;
-    // size_t num_layers = 3; // 输入层、隐藏层、输出层
 public:
-    // model(const std::vector<size_t>& layer_sizes);
     model();
+    model(vector<vector<float>> fc1_weight, vector<vector<float>> fc1_bias, vector<vector<float>> fc2_weight, vector<vector<float>> fc2_bias);
     model(const model &other);
     Matrix forward(const Matrix &input);
     void print_parameters() const;

@@ -149,18 +149,11 @@ model::model()
 
     weights.insert(weights.end(), {Matrix(784, 500), Matrix(500, 10)});
     biases.insert(biases.end(), {Matrix(1,500), Matrix(1,10)});
-
-    // for (size_t i = 0; i < num_layers - 1; ++i) {
-    //     weights[i] = Matrix(layer_sizes[i + 1], layer_sizes[i]);
-    //     biases[i] = Matrix(layer_sizes[i + 1], 1);
-    //     // 初始化权重和偏置（这里简单初始化为随机值，可以根据需要改进）
-    //     for (size_t r = 0; r < weights[i].rows(); ++r) {
-    //         for (size_t c = 0; c < weights[i].cols(); ++c) {
-    //             weights[i](r, c) = static_cast<float>(rand()) / RAND_MAX; // 随机初始化
-    //         }
-    //         biases[i](r, 0) = static_cast<float>(rand()) / RAND_MAX; // 随机初始化
-    //     }
-    // }
+}
+model::model(vector<vector<float>> fc1_weight, vector<vector<float>> fc1_bias, vector<vector<float>> fc2_weight, vector<vector<float>> fc2_bias)
+{
+    weights.insert(weights.end(), {Matrix(784, 500, fc1_weight), Matrix(500, 10, fc2_weight)});
+    biases.insert(biases.end(), {Matrix(1,500, fc1_bias), Matrix(1,10, fc2_bias)});
 }
 
 //拷贝构造函数
