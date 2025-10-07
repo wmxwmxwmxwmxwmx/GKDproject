@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <opencv2/opencv.hpp>
 using namespace std;
 class Matrix
 {

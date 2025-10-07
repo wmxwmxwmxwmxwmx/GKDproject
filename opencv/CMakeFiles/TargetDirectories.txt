@@ -1,0 +1,3 @@
+/home/wmx/桌面/project/GKDproject/opencv/CMakeFiles/test.dir
+/home/wmx/桌面/project/GKDproject/opencv/CMakeFiles/edit_cache.dir
+/home/wmx/桌面/project/GKDproject/opencv/CMakeFiles/rebuild_cache.dir
