@@ -1,0 +1,3 @@
+/home/wmx/桌面/project/GKDproject/project/CMakeFiles/main.dir
+/home/wmx/桌面/project/GKDproject/project/CMakeFiles/edit_cache.dir
+/home/wmx/桌面/project/GKDproject/project/CMakeFiles/rebuild_cache.dir
