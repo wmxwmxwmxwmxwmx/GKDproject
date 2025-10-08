@@ -7,8 +7,6 @@
 #include <opencv2/opencv.hpp>
 using namespace std;
 
-// typedef float ValType;
-
 template <typename T>
 class Matrix
 {
@@ -16,8 +14,8 @@ private:
     std::vector<std::vector<T>> data_;
     size_t rows_; // 行数
     size_t cols_; // 列数
-
 public:
+
     // 构造函数
     Matrix(size_t rows, size_t cols);
     Matrix(size_t rows, size_t cols, const std::vector<std::vector<T>> &data);
@@ -56,7 +54,7 @@ class modelbase
 public:
     modelbase(const string &path = "") : _path(path) {}
     virtual ~modelbase() = default;
-    virtual const void predict() const = 0; // 纯虚函数
+    virtual const void predict(cv::Mat image) const = 0; // 纯虚函数
     std::string _path;
 };
 
@@ -71,7 +69,8 @@ public:
     model(const string &path = "");
     model(const model &other);
     Matrix<T> _predict(const Matrix<T> &input) const; // 预测函数
-    virtual const void predict() const;               // 包装函数
+    virtual const void predict(cv::Mat image) const;  // 包装函数
+    void drawBarChart(const std::vector<T>& values, const std::string& windowName = "predict", int displayWidth = 800, int displayHeight = 600) const;
 };
 
 // 函数实现
@@ -268,15 +267,15 @@ Matrix<T> model<T>::_predict(const Matrix<T> &input) const
 
 // 包装函数
 template <typename T>
-const void model<T>::predict() const
+const void model<T>::predict(cv::Mat image) const
 {
     // 读取图像
-    cv::Mat image = cv::imread("/home/wmx/桌面/project/GKDproject/project/num/0.png");
-    if (image.empty())
-    {
-        cout << "无法打开图片！" << endl;
-        exit(-1);
-    }
+    // cv::Mat image = cv::imread("/home/wmx/桌面/project/GKDproject/project/num/0.png");
+    // if (image.empty())
+    // {
+    //     cout << "无法打开图片！" << endl;
+    //     exit(-1);
+    // }
 
     // 转换为灰度图像
     cv::Mat grayImage;
@@ -297,5 +296,85 @@ const void model<T>::predict() const
             input(0, i * down_width + j) = resized_down.at<uchar>(i, j) / static_cast<T>(255.0); // 归一化到0~1
         }
     }
-    _predict(input).print();
+   Matrix<T> output = _predict(input);
+   drawBarChart(std::vector<T>{
+       output(0, 0), output(0, 1), output(0, 2), output(0, 3), output(0, 4),
+       output(0, 5), output(0, 6), output(0, 7), output(0, 8), output(0, 9)},
+       "predict",800,600);
 }
+
+template <typename T>
+ void model<T>::drawBarChart(const std::vector<T>& values, const std::string& windowName, int displayWidth, int displayHeight) const
+ {
+     // 参数检查
+    if (values.size() != 10) {
+        std::cerr << "Error: Input vector size must be 10." << std::endl;
+        return;
+    }
+
+    // 1. 创建一个白色背景的画布
+    cv::Mat image(displayHeight, displayWidth, CV_8UC3, cv::Scalar(255, 255, 255));
+
+    // 2. 定义柱状图参数
+    int numBars = values.size(); // 柱条数量，这里是10
+    int margin = 50; // 画布的边距，为顶部和底部留出空间写标签
+    int chartTop = margin;
+    int chartBottom = displayHeight - margin;
+    int chartHeight = chartBottom - chartTop;
+    int totalBarAreaWidth = displayWidth - 2 * margin; // 柱条区域的总宽度
+    int barWidth = totalBarAreaWidth / (numBars * 2); // 每个柱条的宽度 (相邻柱条间会有间隔)
+    int barSpacing = barWidth; // 柱条之间的间隔，这里设置为与柱宽相等
+
+    // 3. 查找向量中的最大值（用于缩放柱条高度）
+    float maxValue = *std::max_element(values.begin(), values.end());
+    // 如果最大值为0，避免除以0，并设置一个最小缩放
+    if (maxValue == static_cast<T>(0)) maxValue = static_cast<T>(1);
+
+    // 4. 绘制每个柱条和标签
+    for (int i = 0; i < numBars; ++i) {
+        // 计算当前柱条的水平起始位置（x坐标）
+        int x = margin + i * (barWidth + barSpacing);
+
+        // 根据值计算柱条高度（缩放至图表高度）
+        int barHeight = static_cast<int>((values[i] / maxValue) * chartHeight);
+        // 计算柱条在图像上的垂直起始位置（y坐标），OpenCV中y轴向下为正
+        int y = chartBottom - barHeight;
+
+        // 选择颜色：例如蓝色柱条，你也可以根据值的大小映射颜色
+        cv::Scalar color = cv::Scalar(255, 0, 0); // BGR格式: 此处为蓝色
+
+        // 绘制柱条（填充矩形）
+        cv::rectangle(image,
+                      cv::Point(x, y),                      // 矩形左上角
+                      cv::Point(x + barWidth, chartBottom), // 矩形右下角
+                      color,                                 // 颜色
+                      -1);                                  // 厚度-1表示填充
+
+        // 5. (可选) 在柱条上方绘制数值标签
+        std::string valueLabel = std::to_string(values[i]);
+        int baseline = 0;
+        cv::Size textSize = cv::getTextSize(valueLabel, cv::FONT_HERSHEY_SIMPLEX, 0.4, 1, &baseline);
+        cv::putText(image,
+                   valueLabel,
+                   cv::Point(x + (barWidth - textSize.width) / 2, y - 5), // 位置：柱条上方居中
+                   cv::FONT_HERSHEY_SIMPLEX,
+                   0.4, // 字体大小
+                   cv::Scalar(0, 0, 0), // 黑色文字
+                   1);                   // 线宽
+
+        // 6. (可选) 在柱条下方绘制对应的数字标签（0-9）
+        std::string numberLabel = std::to_string(i);
+        cv::Size numTextSize = cv::getTextSize(numberLabel, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseline);
+        cv::putText(image,
+                   numberLabel,
+                   cv::Point(x + (barWidth - numTextSize.width) / 2, chartBottom + numTextSize.height + 5),
+                   cv::FONT_HERSHEY_SIMPLEX,
+                   0.5, // 字体大小
+                   cv::Scalar(0, 0, 0), // 黑色文字
+                   1);
+    }
+
+    // 7. 显示图像
+    cv::imshow(windowName, image);
+    // cv::waitKey(0); // 等待按键，根据需要调用（如果在循环中显示，可能不需要）
+ }

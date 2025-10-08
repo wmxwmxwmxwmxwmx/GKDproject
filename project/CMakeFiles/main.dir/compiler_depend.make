@@ -477,19 +477,75 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
   /lib/x86_64-linux-gnu/libImath-3_1.so.29 \
   /lib/x86_64-linux-gnu/libLerc.so.4 \
   /lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30 \
+  /lib/x86_64-linux-gnu/libX11.so.6 \
+  /lib/x86_64-linux-gnu/libXau.so.6 \
+  /lib/x86_64-linux-gnu/libXcomposite.so.1 \
+  /lib/x86_64-linux-gnu/libXcursor.so.1 \
+  /lib/x86_64-linux-gnu/libXdamage.so.1 \
+  /lib/x86_64-linux-gnu/libXdmcp.so.6 \
+  /lib/x86_64-linux-gnu/libXext.so.6 \
+  /lib/x86_64-linux-gnu/libXfixes.so.3 \
+  /lib/x86_64-linux-gnu/libXi.so.6 \
+  /lib/x86_64-linux-gnu/libXinerama.so.1 \
+  /lib/x86_64-linux-gnu/libXrandr.so.2 \
+  /lib/x86_64-linux-gnu/libXrender.so.1 \
+  /lib/x86_64-linux-gnu/libatk-1.0.so.0 \
+  /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libatomic.so.1 \
+  /lib/x86_64-linux-gnu/libatspi.so.0 \
+  /lib/x86_64-linux-gnu/libblkid.so.1 \
+  /lib/x86_64-linux-gnu/libbrotlicommon.so.1 \
+  /lib/x86_64-linux-gnu/libbrotlidec.so.1 \
+  /lib/x86_64-linux-gnu/libbz2.so.1.0 \
   /lib/x86_64-linux-gnu/libc.so.6 \
+  /lib/x86_64-linux-gnu/libcairo-gobject.so.2 \
+  /lib/x86_64-linux-gnu/libcairo.so.2 \
+  /lib/x86_64-linux-gnu/libcap.so.2 \
+  /lib/x86_64-linux-gnu/libdatrie.so.1 \
+  /lib/x86_64-linux-gnu/libdbus-1.so.3 \
   /lib/x86_64-linux-gnu/libdeflate.so.0 \
+  /lib/x86_64-linux-gnu/libepoxy.so.0 \
+  /lib/x86_64-linux-gnu/libexpat.so.1 \
+  /lib/x86_64-linux-gnu/libffi.so.8 \
+  /lib/x86_64-linux-gnu/libfontconfig.so.1 \
+  /lib/x86_64-linux-gnu/libfreetype.so.6 \
+  /lib/x86_64-linux-gnu/libfribidi.so.0 \
+  /lib/x86_64-linux-gnu/libgdk-3.so.0 \
+  /lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libgio-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libglib-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libgobject-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libgraphite2.so.3 \
+  /lib/x86_64-linux-gnu/libgtk-3.so.0 \
+  /lib/x86_64-linux-gnu/libharfbuzz.so.0 \
   /lib/x86_64-linux-gnu/libjbig.so.0 \
   /lib/x86_64-linux-gnu/libjpeg.so.8 \
   /lib/x86_64-linux-gnu/liblzma.so.5 \
   /lib/x86_64-linux-gnu/libm.so.6 \
+  /lib/x86_64-linux-gnu/libmount.so.1 \
   /lib/x86_64-linux-gnu/libmvec.so.1 \
+  /lib/x86_64-linux-gnu/libpango-1.0.so.0 \
+  /lib/x86_64-linux-gnu/libpangocairo-1.0.so.0 \
+  /lib/x86_64-linux-gnu/libpangoft2-1.0.so.0 \
+  /lib/x86_64-linux-gnu/libpcre2-8.so.0 \
+  /lib/x86_64-linux-gnu/libpixman-1.so.0 \
   /lib/x86_64-linux-gnu/libpng16.so.16 \
+  /lib/x86_64-linux-gnu/libselinux.so.1 \
   /lib/x86_64-linux-gnu/libsharpyuv.so.0 \
+  /lib/x86_64-linux-gnu/libsystemd.so.0 \
+  /lib/x86_64-linux-gnu/libthai.so.0 \
   /lib/x86_64-linux-gnu/libtiff.so.6 \
+  /lib/x86_64-linux-gnu/libwayland-client.so.0 \
+  /lib/x86_64-linux-gnu/libwayland-cursor.so.0 \
+  /lib/x86_64-linux-gnu/libwayland-egl.so.1 \
   /lib/x86_64-linux-gnu/libwebp.so.7 \
   /lib/x86_64-linux-gnu/libwebpdemux.so.2 \
   /lib/x86_64-linux-gnu/libwebpmux.so.3 \
+  /lib/x86_64-linux-gnu/libxcb-render.so.0 \
+  /lib/x86_64-linux-gnu/libxcb-shm.so.0 \
+  /lib/x86_64-linux-gnu/libxcb.so.1 \
+  /lib/x86_64-linux-gnu/libxkbcommon.so.0 \
   /lib/x86_64-linux-gnu/libz.so.1 \
   /lib/x86_64-linux-gnu/libzstd.so.1 \
   /lib64/ld-linux-x86-64.so.2 \
@@ -505,6 +561,7 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
   /usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so \
   /usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  /usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2 \
   /usr/local/lib/libopencv_aruco.so.4.13.0 \
   /usr/local/lib/libopencv_bgsegm.so.4.13.0 \
   /usr/local/lib/libopencv_bioinspired.so.4.13.0 \
@@ -561,8 +618,6 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
   CMakeFiles/main.dir/main.cc.o
 
 
-/usr/local/lib/libopencv_xphoto.so.4.13.0:
-
 /usr/local/lib/libopencv_xobjdetect.so.4.13.0:
 
 /usr/local/lib/libopencv_ximgproc.so.4.13.0:
@@ -585,9 +640,83 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/local/lib/libopencv_structured_light.so.4.13.0:
 
+/usr/local/lib/libopencv_signal.so.4.13.0:
+
+/usr/local/lib/libopencv_shape.so.4.13.0:
+
+/usr/local/lib/libopencv_reg.so.4.13.0:
+
+/usr/local/lib/libopencv_rapid.so.4.13.0:
+
+/usr/local/lib/libopencv_quality.so.4.13.0:
+
+/usr/local/lib/libopencv_photo.so.4.13.0:
+
+/usr/local/lib/libopencv_phase_unwrapping.so.4.13.0:
+
+/usr/local/lib/libopencv_optflow.so.4.13.0:
+
+/usr/local/lib/libopencv_objdetect.so.4.13.0:
+
+/usr/local/lib/libopencv_ml.so.4.13.0:
+
+/usr/local/lib/libopencv_mcc.so.4.13.0:
+
+/usr/local/lib/libopencv_line_descriptor.so.4.13.0:
+
+/usr/local/lib/libopencv_imgcodecs.so.4.13.0:
+
+/usr/local/lib/libopencv_img_hash.so.4.13.0:
+
+/usr/local/lib/libopencv_highgui.so.4.13.0:
+
+/usr/local/lib/libopencv_hfs.so.4.13.0:
+
+/usr/local/lib/libopencv_fuzzy.so.4.13.0:
+
+/usr/local/lib/libopencv_flann.so.4.13.0:
+
+/usr/local/lib/libopencv_features2d.so.4.13.0:
+
+/usr/local/lib/libopencv_face.so.4.13.0:
+
+/usr/local/lib/libopencv_dpm.so.4.13.0:
+
+/usr/local/lib/libopencv_dnn_superres.so.4.13.0:
+
+/usr/local/lib/libopencv_dnn_objdetect.so.4.13.0:
+
+/usr/local/lib/libopencv_datasets.so.4.13.0:
+
+/usr/local/lib/libopencv_core.so.4.13.0:
+
+/usr/local/lib/libopencv_ccalib.so.4.13.0:
+
+/usr/local/lib/libopencv_bgsegm.so.4.13.0:
+
+/usr/local/lib/libopencv_aruco.so.4.13.0:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libgcc.a:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o:
+
+/usr/lib/x86_64-linux-gnu/libm.so:
+
+/lib/x86_64-linux-gnu/libzstd.so.1:
+
+/lib/x86_64-linux-gnu/libz.so.1:
+
+/lib/x86_64-linux-gnu/libxkbcommon.so.0:
+
 /usr/local/lib/libopencv_stitching.so.4.13.0:
 
-/usr/local/lib/libopencv_stereo.so.4.13.0:
+/lib/x86_64-linux-gnu/libxcb.so.1:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -599,11 +728,15 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
+/lib/x86_64-linux-gnu/libXext.so.6:
+
 /usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
 /usr/include/linux/types.h:
+
+/lib/x86_64-linux-gnu/libthai.so.0:
 
 /usr/include/linux/errno.h:
 
@@ -620,6 +753,10 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 /usr/lib/gcc/x86_64-linux-gnu/14/include/stdarg.h:
 
 /usr/include/c++/14/unordered_map:
+
+/lib64/ld-linux-x86-64.so.2:
+
+/usr/include/c++/14/type_traits:
 
 /usr/include/c++/14/tuple:
 
@@ -644,8 +781,6 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 /usr/include/c++/14/cmath:
 
 /usr/include/c++/14/bits/stl_algo.h:
-
-/usr/local/lib/libopencv_img_hash.so.4.13.0:
 
 /usr/include/c++/14/span:
 
@@ -677,15 +812,11 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/c++/14/initializer_list:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
 /usr/include/c++/14/format:
 
 /usr/include/c++/14/ext/alloc_traits.h:
 
 /usr/include/limits.h:
-
-/usr/local/lib/libopencv_face.so.4.13.0:
 
 /usr/include/c++/14/ext/string_conversions.h:
 
@@ -699,25 +830,31 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/errno.h:
 
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/c++/14/cwctype:
-
 /usr/include/c++/14/ext/numeric_traits.h:
 
 /usr/local/include/opencv4/opencv2/flann/dist.h:
 
-/usr/include/c++/14/cstdlib:
+/lib/x86_64-linux-gnu/libXdmcp.so.6:
+
+/usr/local/lib/libopencv_imgproc.so.4.13.0:
+
+/usr/include/c++/14/cstdio:
 
 /usr/include/c++/14/bits/utility.h:
 
 /usr/include/c++/14/cstdint:
 
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
+
+/usr/include/c++/14/cstddef:
+
 /usr/include/c++/14/ostream:
 
-/lib/x86_64-linux-gnu/libzstd.so.1:
-
 /usr/include/c++/14/climits:
+
+/lib/x86_64-linux-gnu/libwayland-cursor.so.0:
+
+/lib/x86_64-linux-gnu/libffi.so.8:
 
 /usr/include/c++/14/cerrno:
 
@@ -725,9 +862,9 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h:
 
-/usr/local/lib/libopencv_core.so.4.13.0:
-
 /usr/local/include/opencv4/opencv2/flann/index_testing.h:
+
+/lib/x86_64-linux-gnu/libpango-1.0.so.0:
 
 /usr/include/c++/14/bits/vector.tcc:
 
@@ -749,6 +886,10 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/c++/14/bits/specfun.h:
 
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/lib/x86_64-linux-gnu/libgdk-3.so.0:
+
 /usr/include/c++/14/bits/istream.tcc:
 
 /usr/local/include/opencv4/opencv2/videoio.hpp:
@@ -765,15 +906,13 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
+/lib/x86_64-linux-gnu/libXrender.so.1:
+
 /usr/include/c++/14/bits/ios_base.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-/usr/local/lib/libopencv_shape.so.4.13.0:
-
 /usr/include/pthread.h:
-
-/lib/x86_64-linux-gnu/libz.so.1:
 
 /usr/include/c++/14/bits/functexcept.h:
 
@@ -805,6 +944,8 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/local/include/opencv4/opencv2/core/base.hpp:
 
+/lib/x86_64-linux-gnu/libxcb-shm.so.0:
+
 /usr/include/c++/14/bits/concept_check.h:
 
 /usr/include/c++/14/bits/align.h:
@@ -813,33 +954,25 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/c++/14/ext/aligned_buffer.h:
 
-/usr/include/c++/14/bits/ostream.tcc:
-
 /usr/include/c++/14/bits/cpp_type_traits.h:
 
 /usr/include/c++/14/tr1/riemann_zeta.tcc:
 
-/usr/local/lib/libopencv_highgui.so.4.13.0:
-
 /usr/include/c++/14/bits/basic_string.h:
 
-/usr/include/stdlib.h:
+/usr/lib/x86_64-linux-gnu/crti.o:
 
-/usr/local/lib/libopencv_ccalib.so.4.13.0:
+/lib/x86_64-linux-gnu/libwebpmux.so.3:
+
+/usr/include/c++/14/bits/locale_facets.h:
+
+/usr/include/stdlib.h:
 
 /usr/include/c++/14/istream:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/include/float.h:
 
-/usr/local/lib/libopencv_rapid.so.4.13.0:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
-
-/usr/local/lib/libopencv_photo.so.4.13.0:
-
 /usr/include/linux/posix_types.h:
-
-/usr/include/c++/14/bits/locale_classes.tcc:
 
 /usr/include/c++/14/ext/type_traits.h:
 
@@ -861,8 +994,6 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/c++/14/ios:
 
-/usr/lib/x86_64-linux-gnu/libm.so:
-
 /usr/include/c++/14/cctype:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/include/emmintrin.h:
@@ -881,15 +1012,21 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/local/include/opencv4/opencv2/core/vsx_utils.hpp:
 
+/lib/x86_64-linux-gnu/libfribidi.so.0:
+
+/lib/x86_64-linux-gnu/libgraphite2.so.3:
+
 /usr/include/c++/14/bits/hashtable.h:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
 /usr/include/c++/14/tr1/special_function_util.h:
 
-/usr/include/c++/14/bits/sstream.tcc:
+/usr/local/lib/libopencv_calib3d.so.4.13.0:
 
-/usr/local/lib/libopencv_ml.so.4.13.0:
+/usr/include/c++/14/bits/stl_set.h:
+
+/usr/include/c++/14/bits/sstream.tcc:
 
 /usr/include/unistd.h:
 
@@ -903,8 +1040,6 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/include/c++/14/bits/quoted_string.h:
 
-/usr/include/alloca.h:
-
 /usr/include/c++/14/bits/algorithmfwd.h:
 
 /usr/include/c++/14/bits/ptr_traits.h:
@@ -916,6 +1051,12 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 /usr/local/include/opencv4/opencv2/core/cv_cpu_dispatch.h:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/lib/x86_64-linux-gnu/libgmodule-2.0.so.0:
+
+/usr/local/lib/libopencv_gapi.so.4.13.0:
+
+/usr/include/c++/14/clocale:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/ctype_inline.h:
 
@@ -931,6 +1072,12 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 
 /usr/local/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp:
 
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/c++/14/cwctype:
+
+/lib/x86_64-linux-gnu/libmount.so.1:
+
 /usr/include/c++/14/bits/unique_ptr.h:
 
 /usr/include/stdint.h:
@@ -938,8 +1085,6 @@ main: /lib/x86_64-linux-gnu/libIex-3_1.so.30 \
 /usr/include/endian.h:
 
 /usr/local/include/opencv4/opencv2/stitching/warpers.hpp:
-
-/usr/local/lib/libopencv_line_descriptor.so.4.13.0:
 
 /usr/include/linux/limits.h:
 
@@ -979,6 +1124,8 @@ CMakeFiles/main.dir/main.cc.o:
 
 /usr/include/c++/14/backward/binders.h:
 
+/lib/x86_64-linux-gnu/libglib-2.0.so.0:
+
 /usr/include/c++/14/streambuf:
 
 /usr/include/c++/14/bits/string_view.tcc:
@@ -988,8 +1135,6 @@ CMakeFiles/main.dir/main.cc.o:
 /usr/include/c++/14/bits/locale_facets.tcc:
 
 /usr/include/c++/14/bits/chrono.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
 
 /usr/include/c++/14/bits/stl_tree.h:
 
@@ -1041,6 +1186,10 @@ CMakeFiles/main.dir/main.cc.o:
 
 /usr/include/c++/14/bits/streambuf.tcc:
 
+/lib/x86_64-linux-gnu/libX11.so.6:
+
+/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2:
+
 /usr/include/c++/14/stdlib.h:
 
 /usr/include/c++/14/pstl/glue_memory_defs.h:
@@ -1087,11 +1236,27 @@ Matrix.h:
 
 /usr/local/include/opencv4/opencv2/flann/kmeans_index.h:
 
+/lib/x86_64-linux-gnu/libexpat.so.1:
+
 /usr/include/c++/14/complex:
 
 /usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/c++/14/bits/nested_exception.h:
+
+/usr/lib/x86_64-linux-gnu/libc.so:
+
+/usr/lib/x86_64-linux-gnu/Scrt1.o:
+
+/usr/include/c++/14/bits/stl_uninitialized.h:
+
+/usr/include/c++/14/bits/locale_classes.h:
+
+/usr/local/lib/libopencv_saliency.so.4.13.0:
+
+/usr/include/syscall.h:
+
+/lib/x86_64-linux-gnu/libXcursor.so.1:
 
 /usr/include/c++/14/bits/parse_numbers.h:
 
@@ -1117,6 +1282,10 @@ main.cc:
 
 /usr/include/c++/14/bits/ranges_base.h:
 
+/usr/local/lib/libopencv_plot.so.4.13.0:
+
+/usr/local/include/opencv4/opencv2/core/matx.hpp:
+
 /usr/include/c++/14/bits/ranges_cmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
@@ -1127,6 +1296,8 @@ main.cc:
 
 /usr/include/wchar.h:
 
+/lib/x86_64-linux-gnu/libpixman-1.so.0:
+
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
 /usr/include/c++/14/bits/stl_map.h:
@@ -1136,6 +1307,8 @@ main.cc:
 /usr/include/c++/14/bits/refwrap.h:
 
 /usr/include/strings.h:
+
+/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0:
 
 /usr/include/c++/14/iostream:
 
@@ -1153,15 +1326,17 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
-/lib/x86_64-linux-gnu/libwebpmux.so.3:
-
-/usr/include/c++/14/bits/locale_facets.h:
-
-/usr/lib/x86_64-linux-gnu/crti.o:
-
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/local/include/opencv4/opencv2/flann/ground_truth.h:
+
+/usr/local/lib/libopencv_rgbd.so.4.13.0:
+
+/usr/include/c++/14/bits/hashtable_policy.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/lib/x86_64-linux-gnu/libXrandr.so.2:
 
 /lib/x86_64-linux-gnu/libjbig.so.0:
 
@@ -1179,27 +1354,19 @@ main.cc:
 
 /usr/include/c++/14/bits/stl_iterator_base_types.h:
 
-/usr/local/lib/libopencv_hfs.so.4.13.0:
-
 /usr/include/c++/14/new:
 
 /usr/include/c++/14/bits/stl_list.h:
 
 /usr/local/include/opencv4/opencv2/photo.hpp:
 
-/usr/local/lib/libopencv_fuzzy.so.4.13.0:
-
 /usr/include/c++/14/debug/assertions.h:
-
-/usr/include/c++/14/bits/unique_lock.h:
 
 /usr/include/c++/14/bits/stl_relops.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/local/include/opencv4/opencv2/core/cvdef.h:
-
-/usr/local/lib/libopencv_dnn_superres.so.4.13.0:
 
 /usr/include/c++/14/tr1/beta_function.tcc:
 
@@ -1237,6 +1404,8 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
+/lib/x86_64-linux-gnu/libXcomposite.so.1:
+
 /usr/include/c++/14/concepts:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
@@ -1271,7 +1440,9 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
-/usr/include/x86_64-linux-gnu/bits/timex.h:
+/usr/local/lib/libopencv_dnn.so.4.13.0:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/cpu_defines.h:
 
@@ -1290,10 +1461,6 @@ main.cc:
 /usr/local/include/opencv4/opencv2/dnn/version.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/syscall.h:
-
-/usr/local/lib/libopencv_saliency.so.4.13.0:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
@@ -1317,6 +1484,8 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
+/lib/x86_64-linux-gnu/libblkid.so.1:
+
 /usr/local/include/opencv4/opencv2/highgui.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
@@ -1329,9 +1498,15 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+/lib/x86_64-linux-gnu/libpcre2-8.so.0:
+
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
 /usr/local/include/opencv4/opencv2/flann/timer.h:
+
+/usr/include/alloca.h:
+
+/lib/x86_64-linux-gnu/libgtk-3.so.0:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/c++allocator.h:
 
@@ -1361,6 +1536,8 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
+/lib/x86_64-linux-gnu/libgobject-2.0.so.0:
+
 /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/time_members.h:
@@ -1385,6 +1562,8 @@ main.cc:
 
 /usr/include/x86_64-linux-gnu/sys/syscall.h:
 
+/lib/x86_64-linux-gnu/libepoxy.so.0:
+
 /usr/lib/gcc/x86_64-linux-gnu/14/include/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
@@ -1396,8 +1575,6 @@ main.cc:
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/include/mm_malloc.h:
-
-/usr/local/lib/libopencv_reg.so.4.13.0:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/include/mmintrin.h:
 
@@ -1416,8 +1593,6 @@ main.cc:
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/local/include/opencv4/opencv2/core/affine.hpp:
-
-/usr/local/lib/libopencv_mcc.so.4.13.0:
 
 /usr/include/x86_64-linux-gnu/asm/unistd_64.h:
 
@@ -1443,6 +1618,8 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:
 
+/lib/x86_64-linux-gnu/libXfixes.so.3:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/local/include/opencv4/opencv2/core/mat.hpp:
@@ -1459,15 +1636,9 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/core/neon_utils.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o:
-
 /usr/local/include/opencv4/opencv2/core/optim.hpp:
 
-/usr/local/lib/libopencv_aruco.so.4.13.0:
-
 /usr/local/include/opencv4/opencv2/core/ovx.hpp:
-
-/usr/local/lib/libopencv_imgcodecs.so.4.13.0:
 
 /usr/local/include/opencv4/opencv2/core/persistence.hpp:
 
@@ -1485,8 +1656,6 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp:
 
-/usr/local/include/opencv4/opencv2/flann/result_set.h:
-
 /usr/include/c++/14/ext/concurrence.h:
 
 /usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp:
@@ -1496,6 +1665,14 @@ main.cc:
 /usr/include/x86_64-linux-gnu/asm/posix_types_64.h:
 
 /usr/local/include/opencv4/opencv2/features2d.hpp:
+
+/usr/local/lib/libopencv_stereo.so.4.13.0:
+
+/lib/x86_64-linux-gnu/libcairo.so.2:
+
+/usr/local/lib/libopencv_bioinspired.so.4.13.0:
+
+/usr/local/include/opencv4/opencv2/flann.hpp:
 
 /usr/local/include/opencv4/opencv2/flann/all_indices.h:
 
@@ -1527,7 +1704,11 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/flann/matrix.h:
 
+/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0:
+
 /usr/local/include/opencv4/opencv2/flann/nn_index.h:
+
+/lib/x86_64-linux-gnu/libbz2.so.1.0:
 
 /usr/local/include/opencv4/opencv2/flann/params.h:
 
@@ -1545,6 +1726,8 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/ml.hpp:
 
+/lib/x86_64-linux-gnu/libfreetype.so.6:
+
 /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp:
 
 /usr/local/include/opencv4/opencv2/objdetect/aruco_board.hpp:
@@ -1555,21 +1738,9 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp:
 
-/usr/local/lib/libopencv_signal.so.4.13.0:
-
 /usr/local/include/opencv4/opencv2/objdetect/face.hpp:
 
 /usr/local/include/opencv4/opencv2/opencv_modules.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-/usr/local/lib/libopencv_dnn.so.4.13.0:
-
-/usr/include/c++/14/bits/version.h:
-
-/usr/include/c++/14/bits/stl_queue.h:
-
-/usr/local/include/opencv4/opencv2/stitching.hpp:
 
 /usr/local/include/opencv4/opencv2/stitching/detail/blenders.hpp:
 
@@ -1585,9 +1756,65 @@ main.cc:
 
 /usr/local/include/opencv4/opencv2/video/background_segm.hpp:
 
+/lib/x86_64-linux-gnu/libXau.so.6:
+
 /usr/local/include/opencv4/opencv2/video/tracking.hpp:
 
 /lib/x86_64-linux-gnu/libImath-3_1.so.29:
+
+/lib/x86_64-linux-gnu/libXinerama.so.1:
+
+/lib/x86_64-linux-gnu/libXi.so.6:
+
+/lib/x86_64-linux-gnu/libatk-1.0.so.0:
+
+/usr/include/c++/14/cstdlib:
+
+/lib/x86_64-linux-gnu/libatomic.so.1:
+
+/usr/include/c++/14/bits/unique_lock.h:
+
+/lib/x86_64-linux-gnu/libatspi.so.0:
+
+/lib/x86_64-linux-gnu/libbrotlicommon.so.1:
+
+/usr/include/c++/14/bits/locale_classes.tcc:
+
+/lib/x86_64-linux-gnu/libbrotlidec.so.1:
+
+/lib/x86_64-linux-gnu/libfontconfig.so.1:
+
+/lib/x86_64-linux-gnu/libcairo-gobject.so.2:
+
+/usr/local/include/opencv4/opencv2/flann/result_set.h:
+
+/lib/x86_64-linux-gnu/libcap.so.2:
+
+/lib/x86_64-linux-gnu/libdatrie.so.1:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/lib/x86_64-linux-gnu/libdbus-1.so.3:
+
+/lib/x86_64-linux-gnu/libxcb-render.so.0:
+
+/usr/local/lib/libopencv_xphoto.so.4.13.0:
+
+/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0:
+
+/lib/x86_64-linux-gnu/libgio-2.0.so.0:
+
+/usr/include/c++/14/bits/version.h:
+
+/usr/include/c++/14/bits/stl_queue.h:
+
+/usr/local/include/opencv4/opencv2/stitching.hpp:
+
+/lib/x86_64-linux-gnu/libXdamage.so.1:
+
+/lib/x86_64-linux-gnu/libwayland-client.so.0:
+
+/lib/x86_64-linux-gnu/libharfbuzz.so.0:
 
 /lib/x86_64-linux-gnu/libjpeg.so.8:
 
@@ -1595,13 +1822,19 @@ main.cc:
 
 /lib/x86_64-linux-gnu/liblzma.so.5:
 
-/usr/local/lib/libopencv_features2d.so.4.13.0:
+/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0:
 
 /usr/local/lib/libopencv_intensity_transform.so.4.13.0:
 
 /lib/x86_64-linux-gnu/libpng16.so.16:
 
+/lib/x86_64-linux-gnu/libselinux.so.1:
+
 /lib/x86_64-linux-gnu/libsharpyuv.so.0:
+
+/usr/include/c++/14/bits/ostream.tcc:
+
+/lib/x86_64-linux-gnu/libsystemd.so.0:
 
 /usr/include/sched.h:
 
@@ -1609,68 +1842,6 @@ main.cc:
 
 /lib/x86_64-linux-gnu/libtiff.so.6:
 
+/lib/x86_64-linux-gnu/libwayland-egl.so.1:
+
 /lib/x86_64-linux-gnu/libwebpdemux.so.2:
-
-/usr/include/c++/14/type_traits:
-
-/lib64/ld-linux-x86-64.so.2:
-
-/usr/lib/x86_64-linux-gnu/Scrt1.o:
-
-/usr/include/c++/14/bits/stl_uninitialized.h:
-
-/usr/include/c++/14/bits/locale_classes.h:
-
-/usr/lib/x86_64-linux-gnu/libc.so:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/libgcc.a:
-
-/usr/include/c++/14/cstddef:
-
-/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
-
-/usr/local/lib/libopencv_bgsegm.so.4.13.0:
-
-/usr/local/include/opencv4/opencv2/flann.hpp:
-
-/usr/local/lib/libopencv_bioinspired.so.4.13.0:
-
-/usr/include/c++/14/bits/stl_set.h:
-
-/usr/local/lib/libopencv_calib3d.so.4.13.0:
-
-/usr/local/lib/libopencv_datasets.so.4.13.0:
-
-/usr/local/lib/libopencv_dnn_objdetect.so.4.13.0:
-
-/usr/local/lib/libopencv_dpm.so.4.13.0:
-
-/usr/local/lib/libopencv_flann.so.4.13.0:
-
-/usr/include/c++/14/clocale:
-
-/usr/local/lib/libopencv_gapi.so.4.13.0:
-
-/usr/include/c++/14/cstdio:
-
-/usr/local/lib/libopencv_imgproc.so.4.13.0:
-
-/usr/local/lib/libopencv_objdetect.so.4.13.0:
-
-/usr/local/lib/libopencv_optflow.so.4.13.0:
-
-/usr/local/lib/libopencv_phase_unwrapping.so.4.13.0:
-
-/usr/local/include/opencv4/opencv2/core/matx.hpp:
-
-/usr/local/lib/libopencv_plot.so.4.13.0:
-
-/usr/local/lib/libopencv_quality.so.4.13.0:
-
-/usr/include/c++/14/bits/hashtable_policy.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/local/lib/libopencv_rgbd.so.4.13.0:
