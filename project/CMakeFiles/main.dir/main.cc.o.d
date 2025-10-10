@@ -403,4 +403,11 @@ CMakeFiles/main.dir/main.cc.o: \
  /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
  /usr/local/include/opencv4/opencv2/video.hpp \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
- /usr/local/include/opencv4/opencv2/video/background_segm.hpp
+ /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+ /usr/include/c++/14/thread /usr/include/c++/14/stop_token \
+ /usr/include/c++/14/atomic /usr/include/c++/14/bits/std_thread.h \
+ /usr/include/c++/14/semaphore /usr/include/c++/14/bits/semaphore_base.h \
+ /usr/include/c++/14/bits/atomic_timed_wait.h \
+ /usr/include/c++/14/bits/this_thread_sleep.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
+ /usr/include/x86_64-linux-gnu/bits/semaphore.h

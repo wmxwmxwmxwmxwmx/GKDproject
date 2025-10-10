@@ -29,7 +29,7 @@ void onMouse(int event, int x, int y, int flags, void *userdata)
         {
             Drawing = false;
             // 在起点和终点之间画一条线（一次性线段）
-            line(*pCanvas, PreviousPoint, Point(x, y), Scalar(0, 0, 0),10, LINE_AA);
+            line(*pCanvas, PreviousPoint, Point(x, y), Scalar(0, 0, 0), 10, LINE_AA);
             imshow("drawing", *pCanvas);
         }
         break;
@@ -41,8 +41,8 @@ void onMouse(int event, int x, int y, int flags, void *userdata)
             Point currentPoint(x, y);
             // 在上一个点和当前点之间画线，实现笔触效果
             line(*pCanvas, PreviousPoint, currentPoint, Scalar(0, 0, 0), 10, LINE_AA);
-            PreviousPoint = currentPoint;      // 更新上一个点
-            imshow("drawing", *pCanvas); // 实时更新显示
+            PreviousPoint = currentPoint; // 更新上一个点
+            imshow("drawing", *pCanvas);  // 实时更新显示
         }
         break;
 
@@ -52,7 +52,7 @@ void onMouse(int event, int x, int y, int flags, void *userdata)
         imshow("drawing", *pCanvas);
         break;
     }
-    const modelbase& mb= model<float>("/home/wmx/桌面/project/GKDproject/project/mnist-fc");
+    const modelbase &mb = model<float>("/home/wmx/桌面/project/GKDproject/project/mnist-fc");
     mb.predict(gCanvas);
 }
 
