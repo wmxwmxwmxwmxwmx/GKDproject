@@ -1,21 +1,31 @@
 #include <cstdio>
+#include <cstdlib>
 #include <cmath>
 #include <vector>
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #include <opencv2/opencv.hpp>
 #include <thread>
-using namespace std;
 
+
+#define SERVER_IP "127.0.0.1"
+#define SERVER_PORT 8080
+#define BUFFER_SIZE 1024
+
+using namespace std;
 template <typename T>
 class Matrix
 {
 private:
-    std::vector<std::vector<T>> data_;
+    vector<vector<T>> data_;
     size_t rows_; // 行数
     size_t cols_; // 列数
 public:
+    
     // 构造函数
     Matrix(size_t rows, size_t cols);
     Matrix(size_t rows, size_t cols, const std::vector<std::vector<T>> &data);
@@ -68,8 +78,9 @@ private:
 public:
     model(const string &path = "");
     model(const model &other);
+    Matrix<float> socket_predict(const Matrix<float> &input) const; // 有socket通信的预测函数
     Matrix<T> _predict(const Matrix<T> &input) const; // 预测函数
-    virtual const void predict(cv::Mat image) const;  // 包装函数
+    virtual const void predict(cv::Mat image) const;  // 包装预测函数
     void drawBarChart(const std::vector<T> &values, const std::string &windowName = "predict", int displayWidth = 800, int displayHeight = 600) const;
 };
 
@@ -137,15 +148,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const
     return result;
 }
 
-// 这种方法会报错
-//  //单个线程的乘法函数
-//  template <typename T>
-//  void Matrix<T>::ThreadFunc(int startRow, int endRow,const Matrix<T>& other,Matrix<T>& result) {
-//      for (size_t i = startRow; i < endRow; ++i)
-//          for (size_t j = 0; j < other.cols(); ++j)
-//              for (size_t k = 0; k < cols_; ++k)
-//                  result(i, j) += data_[i][k] * other.data_[k][j];
-//  }
+
 
 // 矩阵的乘法
 template <typename T>
@@ -155,10 +158,10 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &other) const
         throw std::invalid_argument("Matrix dimensions do not match for multiplication");
     Matrix result(rows_, other.cols_);
     // 基础版
-    //  for (size_t i = 0; i < rows_; ++i)
-    //      for (size_t j = 0; j < other.cols_; ++j)
-    //          for (size_t k = 0; k < cols_; ++k)
-    //              result(i, j) += data_[i][k] * other.data_[k][j];
+    // for (size_t i = 0; i < rows_; ++i)
+    //     for (size_t j = 0; j < other.cols_; ++j)
+    //         for (size_t k = 0; k < cols_; ++k)
+    //             result(i, j) += data_[i][k] * other.data_[k][j];
 
     // 优化版
     int ThreadNum = std::thread::hardware_concurrency(); // 获取CPU核心数
@@ -294,10 +297,11 @@ template <typename T>
 model<T>::model(const model &other)
     : weights(other.weights), biases(other.biases) {}
 
-// 预测函数
+// 预测函数(无socket通信)
 template <typename T>
 Matrix<T> model<T>::_predict(const Matrix<T> &input) const
 {
+
     if (input.rows() != 1 || input.cols() != 784)
     {
         throw std::invalid_argument("Input dimension must be 1x784");
@@ -308,20 +312,83 @@ Matrix<T> model<T>::_predict(const Matrix<T> &input) const
     return activation;
 }
 
-// 包装函数
+//预测函数(有socket通信)
+template <>
+Matrix<float> model<float>::socket_predict(const Matrix<float> &input) const
+{
+
+    if (input.rows() != 1 || input.cols() != 784)
+    {
+        throw std::invalid_argument("Input dimension must be 1x784");
+    }
+
+
+    // socket通信部分
+
+    int clientSocket;
+    struct sockaddr_in serverAddr;
+    float buffer[BUFFER_SIZE];
+
+    // 创建客户端套接字
+    clientSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (clientSocket == -1) {
+        perror("Failed to create socket");
+        exit(EXIT_FAILURE);
+    }
+
+    // 设置服务器地址信息
+    memset(&serverAddr, 0, sizeof(serverAddr));
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(SERVER_PORT);
+    if (inet_pton(AF_INET, SERVER_IP, &(serverAddr.sin_addr)) <=0) {
+        perror("Failed to set server IP");
+        exit(EXIT_FAILURE);
+    }
+
+    // 连接到服务器
+    if (connect(clientSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) == -1) {
+        perror("Failed to connect to server");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Connected to server %s:%d\n", SERVER_IP, SERVER_PORT);
+
+  
+    // 复制数据到缓冲区
+    for (size_t i = 0; i < 784; ++i) {
+        buffer[i] = input(0, i);
+    }
+    // 发送数据
+    if (send(clientSocket, buffer, 784 * sizeof(float), 0) == -1) {
+        perror("Failed to send data");
+        exit(EXIT_FAILURE);
+    }
+
+    // 接收响应
+    memset(buffer, 0, BUFFER_SIZE*sizeof(float));
+    if (recv(clientSocket, buffer, BUFFER_SIZE*sizeof(float), 0) == -1) {
+        perror("Failed to receive data");
+        exit(EXIT_FAILURE);
+    }
+
+    // 处理接收到的数据
+    Matrix<float> output(1,10);
+    for (size_t i = 0; i < 10; ++i) {
+        output(0, i) = buffer[i];
+    }
+    printf("Received response from server.\n");
+    // 关闭套接字
+    close(clientSocket);
+
+    return output;
+}
+
+
+
+// 包装预测函数
 template <typename T>
 const void model<T>::predict(cv::Mat image) const
 {
-
-    // 读取图像
-    // cv::Mat image = cv::imread("/home/wmx/桌面/project/GKDproject/project/num/0.png");
-    // if (image.empty())
-    // {
-    //     cout << "无法打开图片！" << endl;
-    //     exit(-1);
-    // }
-
-    auto start = std::chrono::high_resolution_clock::now(); // 记录开始时间
 
     // 转换为灰度图像
     cv::Mat grayImage;
@@ -333,7 +400,7 @@ const void model<T>::predict(cv::Mat image) const
     int down_height = 28;
     cv::resize(grayImage, resized_down, cv::Size(down_width, down_height), cv::INTER_LINEAR);
 
-    // 转换为Matrix
+    // 转换为Matrix<T>
     Matrix<T> input(1, 784);
     for (int i = 0; i < down_height; i++)
     {
@@ -342,15 +409,20 @@ const void model<T>::predict(cv::Mat image) const
             input(0, i * down_width + j) = resized_down.at<uchar>(i, j) / static_cast<T>(255.0); // 归一化到0~1
         }
     }
-    Matrix<T> output = _predict(input);
+
+    // auto start = std::chrono::high_resolution_clock::now(); // 记录开始时间
+
+    //Matrix<T> output = _predict(input);
+    Matrix<float> output = socket_predict(input);
+
+    // auto end = std::chrono::high_resolution_clock::now();                                          // 记录结束时间
+    // auto duration_us = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // 计算时间差，单位为毫秒
+    // std::cout << "计算用时: " << duration_us << " 毫秒" << std::endl;
+
     drawBarChart(std::vector<T>{
                      output(0, 0), output(0, 1), output(0, 2), output(0, 3), output(0, 4),
                      output(0, 5), output(0, 6), output(0, 7), output(0, 8), output(0, 9)},
                  "predict", 800, 600);
-
-    auto end = std::chrono::high_resolution_clock::now();                                          // 记录结束时间
-    auto duration_us = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count(); // 计算时间差，单位为毫秒
-    std::cout << "计算用时: " << duration_us << " 毫秒" << std::endl;
 }
 
 // 绘制柱状图函数

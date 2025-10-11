@@ -1,8 +1,8 @@
-main: \
+server: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o \
-  CMakeFiles/main.dir/main.cc.o \
+  CMakeFiles/server.dir/server.cc.o \
   /usr/local/lib/libopencv_gapi.so.4.13.0 \
   /usr/local/lib/libopencv_stitching.so.4.13.0 \
   /usr/local/lib/libopencv_aruco.so.4.13.0 \
@@ -82,22 +82,22 @@ main: \
   /usr/lib/gcc/x86_64-linux-gnu/14/libgcc.a \
   /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/crtn.o \
+  /usr/local/lib/libopencv_imgcodecs.so.4.13.0 \
   /lib/x86_64-linux-gnu/libgtk-3.so.0 \
   /lib/x86_64-linux-gnu/libgdk-3.so.0 \
   /lib/x86_64-linux-gnu/libcairo.so.2 \
   /lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0 \
   /lib/x86_64-linux-gnu/libgobject-2.0.so.0 \
   /lib/x86_64-linux-gnu/libglib-2.0.so.0 \
+  /lib/x86_64-linux-gnu/libz.so.1 \
+  /lib64/ld-linux-x86-64.so.2 \
   /lib/x86_64-linux-gnu/libjpeg.so.8 \
   /lib/x86_64-linux-gnu/libwebp.so.7 \
   /lib/x86_64-linux-gnu/libwebpmux.so.3 \
   /lib/x86_64-linux-gnu/libwebpdemux.so.2 \
   /lib/x86_64-linux-gnu/libpng16.so.16 \
-  /lib/x86_64-linux-gnu/libz.so.1 \
   /lib/x86_64-linux-gnu/libtiff.so.6 \
   /lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30 \
-  /lib/x86_64-linux-gnu/libm.so.6 \
-  /lib64/ld-linux-x86-64.so.2 \
   /lib/x86_64-linux-gnu/libgmodule-2.0.so.0 \
   /lib/x86_64-linux-gnu/libgio-2.0.so.0 \
   /lib/x86_64-linux-gnu/libpangocairo-1.0.so.0 \
@@ -168,7 +168,7 @@ main: \
 
 /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o:
 
-CMakeFiles/main.dir/main.cc.o:
+CMakeFiles/server.dir/server.cc.o:
 
 /usr/local/lib/libopencv_gapi.so.4.13.0:
 
@@ -328,6 +328,8 @@ CMakeFiles/main.dir/main.cc.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/crtn.o:
 
+/usr/local/lib/libopencv_imgcodecs.so.4.13.0:
+
 /lib/x86_64-linux-gnu/libgtk-3.so.0:
 
 /lib/x86_64-linux-gnu/libgdk-3.so.0:
@@ -340,6 +342,10 @@ CMakeFiles/main.dir/main.cc.o:
 
 /lib/x86_64-linux-gnu/libglib-2.0.so.0:
 
+/lib/x86_64-linux-gnu/libz.so.1:
+
+/lib64/ld-linux-x86-64.so.2:
+
 /lib/x86_64-linux-gnu/libjpeg.so.8:
 
 /lib/x86_64-linux-gnu/libwebp.so.7:
@@ -350,15 +356,9 @@ CMakeFiles/main.dir/main.cc.o:
 
 /lib/x86_64-linux-gnu/libpng16.so.16:
 
-/lib/x86_64-linux-gnu/libz.so.1:
-
 /lib/x86_64-linux-gnu/libtiff.so.6:
 
 /lib/x86_64-linux-gnu/libOpenEXR-3_1.so.30:
-
-/lib/x86_64-linux-gnu/libm.so.6:
-
-/lib64/ld-linux-x86-64.so.2:
 
 /lib/x86_64-linux-gnu/libgmodule-2.0.so.0:
 
