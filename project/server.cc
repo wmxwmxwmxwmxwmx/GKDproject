@@ -35,6 +35,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
+    // 服务器主循环
     while (true)
     {
         // 接受客户端连接
@@ -47,7 +48,6 @@ int main()
         }
 
         // 接收数据
-
         memset(buffer, 0, BUFFER_SIZE * sizeof(float));                                // 清空缓冲区
         int receivedSize = recv(clientSocket, buffer, BUFFER_SIZE * sizeof(float), 0); // 接收数据
         if (receivedSize == -1)
@@ -55,11 +55,11 @@ int main()
             perror("Failed to receive data");
             exit(EXIT_FAILURE);
         }
-        else
+        else // 成功接收数据
         {
             int numFloats = receivedSize / sizeof(float); // 计算接收到的浮点数数量
 
-            if (numFloats == 784)
+            if (numFloats == 784) // 确认接收到的是784个浮点数
             {
                 printf("Received %d floats from client.\n", numFloats);
                 // 处理数据
@@ -88,6 +88,7 @@ int main()
             }
         }
     }
+
     // 关闭套接字
     close(clientSocket);
     close(serverSocket);

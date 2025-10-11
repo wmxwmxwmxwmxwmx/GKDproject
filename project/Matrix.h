@@ -11,7 +11,6 @@
 #include <opencv2/opencv.hpp>
 #include <thread>
 
-
 #define SERVER_IP "127.0.0.1"
 #define SERVER_PORT 8080
 #define BUFFER_SIZE 1024
@@ -25,7 +24,6 @@ private:
     size_t rows_; // 行数
     size_t cols_; // 列数
 public:
-    
     // 构造函数
     Matrix(size_t rows, size_t cols);
     Matrix(size_t rows, size_t cols, const std::vector<std::vector<T>> &data);
@@ -79,8 +77,8 @@ public:
     model(const string &path = "");
     model(const model &other);
     Matrix<float> socket_predict(const Matrix<float> &input) const; // 有socket通信的预测函数
-    Matrix<T> _predict(const Matrix<T> &input) const; // 预测函数
-    virtual const void predict(cv::Mat image) const;  // 包装预测函数
+    Matrix<T> _predict(const Matrix<T> &input) const;               // 无socket通信的预测函数
+    virtual const void predict(cv::Mat image) const;                // 包装预测函数
     void drawBarChart(const std::vector<T> &values, const std::string &windowName = "predict", int displayWidth = 800, int displayHeight = 600) const;
 };
 
@@ -147,8 +145,6 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &other) const
             result(i, j) = data_[i][j] + other.data_[i][j];
     return result;
 }
-
-
 
 // 矩阵的乘法
 template <typename T>
@@ -312,7 +308,7 @@ Matrix<T> model<T>::_predict(const Matrix<T> &input) const
     return activation;
 }
 
-//预测函数(有socket通信)
+// 预测函数(有socket通信)
 template <>
 Matrix<float> model<float>::socket_predict(const Matrix<float> &input) const
 {
@@ -322,16 +318,14 @@ Matrix<float> model<float>::socket_predict(const Matrix<float> &input) const
         throw std::invalid_argument("Input dimension must be 1x784");
     }
 
-
-    // socket通信部分
-
-    int clientSocket;
-    struct sockaddr_in serverAddr;
-    float buffer[BUFFER_SIZE];
+    int clientSocket;              // 客户端套接字
+    struct sockaddr_in serverAddr; // 服务器地址结构
+    float buffer[BUFFER_SIZE];     // 发送和接收缓冲区
 
     // 创建客户端套接字
     clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-    if (clientSocket == -1) {
+    if (clientSocket == -1)
+    {
         perror("Failed to create socket");
         exit(EXIT_FAILURE);
     }
@@ -340,50 +334,54 @@ Matrix<float> model<float>::socket_predict(const Matrix<float> &input) const
     memset(&serverAddr, 0, sizeof(serverAddr));
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_port = htons(SERVER_PORT);
-    if (inet_pton(AF_INET, SERVER_IP, &(serverAddr.sin_addr)) <=0) {
+    if (inet_pton(AF_INET, SERVER_IP, &(serverAddr.sin_addr)) <= 0)
+    {
         perror("Failed to set server IP");
         exit(EXIT_FAILURE);
     }
 
     // 连接到服务器
-    if (connect(clientSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) == -1) {
+    if (connect(clientSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr)) == -1)
+    {
         perror("Failed to connect to server");
         exit(EXIT_FAILURE);
     }
 
     printf("Connected to server %s:%d\n", SERVER_IP, SERVER_PORT);
 
-  
     // 复制数据到缓冲区
-    for (size_t i = 0; i < 784; ++i) {
+    for (size_t i = 0; i < 784; ++i)
+    {
         buffer[i] = input(0, i);
     }
     // 发送数据
-    if (send(clientSocket, buffer, 784 * sizeof(float), 0) == -1) {
+    if (send(clientSocket, buffer, 784 * sizeof(float), 0) == -1)
+    {
         perror("Failed to send data");
         exit(EXIT_FAILURE);
     }
 
     // 接收响应
-    memset(buffer, 0, BUFFER_SIZE*sizeof(float));
-    if (recv(clientSocket, buffer, BUFFER_SIZE*sizeof(float), 0) == -1) {
+    memset(buffer, 0, BUFFER_SIZE * sizeof(float));
+    if (recv(clientSocket, buffer, BUFFER_SIZE * sizeof(float), 0) == -1)
+    {
         perror("Failed to receive data");
         exit(EXIT_FAILURE);
     }
 
     // 处理接收到的数据
-    Matrix<float> output(1,10);
-    for (size_t i = 0; i < 10; ++i) {
+    Matrix<float> output(1, 10);
+    for (size_t i = 0; i < 10; ++i)
+    {
         output(0, i) = buffer[i];
     }
     printf("Received response from server.\n");
+
     // 关闭套接字
     close(clientSocket);
 
     return output;
 }
-
-
 
 // 包装预测函数
 template <typename T>
@@ -412,7 +410,7 @@ const void model<T>::predict(cv::Mat image) const
 
     // auto start = std::chrono::high_resolution_clock::now(); // 记录开始时间
 
-    //Matrix<T> output = _predict(input);
+    // Matrix<T> output = _predict(input);
     Matrix<float> output = socket_predict(input);
 
     // auto end = std::chrono::high_resolution_clock::now();                                          // 记录结束时间
